@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+	
+		<th> Title</th>
+	<tbody>
+		<% @rss_feed.feeds.reload.each do |feed| %>
+			<tr>
+				<td>
+					<%= raw(auto_link(feed.url, :html => {text: "Click Here", :target => '_blank' }) do 
+						   feed.title
+						   end
+					) %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to 'Edit', edit_rss_feed_path(@rss_feed) %> |
+<%= link_to 'Back', rss_feeds_path %>
