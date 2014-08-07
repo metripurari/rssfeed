@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140807035030) do
+ActiveRecord::Schema.define(:version => 20140807163401) do
 
   create_table "feeds", :force => true do |t|
     t.string   "title"
     t.string   "url"
     t.integer  "rss_feed_id"
+    t.datetime "pub_date"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

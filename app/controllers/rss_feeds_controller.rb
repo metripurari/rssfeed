@@ -2,10 +2,6 @@
 class RssFeedsController < ApplicationController
   # GET /rss_feeds
   # GET /rss_feeds.json
-  require 'rubygems'
-  require 'simple-rss'
-  require 'open-uri'
-
   def index
     @rss_feeds = RssFeed.all
 
@@ -19,11 +15,7 @@ class RssFeedsController < ApplicationController
   # GET /rss_feeds/1.json
   def show
     @rss_feed = RssFeed.find(params[:id])
-    @feeds = SimpleRSS.parse open(@rss_feed.url)
-
-    @attributes = @feeds.items.collect{|f| {title: f[:title], url: f[:link] , rss_feed_id: @rss_feed.id}}
-    Feed.create(@sttributes)
-    logger.info "+++++++++++++++++++++++++++++++@#{@attributes.inspect}"
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @rss_feed }
@@ -53,6 +45,7 @@ class RssFeedsController < ApplicationController
 
     respond_to do |format|
       if @rss_feed.save
+        @rss_feed.save_feed
         format.html { redirect_to @rss_feed, notice: 'Rss feed was successfully created.' }
         format.json { render json: @rss_feed, status: :created, location: @rss_feed }
       else

@@ -3,9 +3,9 @@
 one:
   title: MyString
   url: MyString
-  rss_feed_id: 1
+  pub_date: 2014-08-07 22:04:01
 
 two:
   title: MyString
   url: MyString
-  rss_feed_id: 1
+  pub_date: 2014-08-07 22:04:01

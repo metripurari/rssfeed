@@ -4,6 +4,7 @@ class CreateFeeds < ActiveRecord::Migration
       t.string :title
       t.string :url
       t.integer :rss_feed_id
+      t.datetime :pub_date
 
       t.timestamps
     end

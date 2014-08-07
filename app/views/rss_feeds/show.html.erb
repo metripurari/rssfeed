@@ -4,11 +4,11 @@
 	
 		<th> Title</th>
 	<tbody>
-		<% @rss_feed.feeds.reload.each do |feed| %>
+		<% @rss_feed.feeds.order(:pub_date).each do |feed| %>
 			<tr>
 				<td>
-					<%= raw(auto_link(feed.url, :html => {text: "Click Here", :target => '_blank' }) do 
-						   feed.title
+					<%= raw(auto_link(feed[:url], :html => {:target => '_blank' }) do 
+						   feed[:title]
 						   end
 					) %>
 				</td>

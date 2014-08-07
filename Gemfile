@@ -23,6 +23,8 @@ end
 gem 'jquery-rails'
 gem 'simple-rss'
 gem 'gr_autolink'
+gem 'rufus-scheduler'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
